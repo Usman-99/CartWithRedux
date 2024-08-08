@@ -45,6 +45,9 @@ function Products() {
 
   return (
     <div className="text-center mt-2">
+      <br />
+      <br />
+      <br />
       <h2>Store Products</h2>
 
       <div className="row mt-5 mx-2">{cards}</div>
