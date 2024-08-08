@@ -67,6 +67,9 @@ const Cart = () => {
 
   return (
     <div className="container mt-4">
+      <br />
+      <br />
+      <br />
       <h2 className="text-center">Your Cart</h2>
 
       {products.length === 0 ? (
