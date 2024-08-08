@@ -1,7 +1,8 @@
 import Card from "react-bootstrap/Card";
 import { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
-
+import { useDispatch } from "react-redux";
+import { add } from "../store/cartSlice";
 function Products() {
   const [products, getProducts] = useState([]);
   useEffect(() => {
@@ -9,11 +10,14 @@ function Products() {
       .then((data) => data.json())
       .then((result) => getProducts(result));
   }, []);
-
+  const dispatch = useDispatch();
+  const addtoCart = (product) => {
+    dispatch(add(product));
+  };
   const cards = products.map((product) => {
     return (
-      <div className="col-md-3 mb-5">
-        <Card className="h-100 " key={product.id}>
+      <div className="col-md-3 mb-5" key={product.id}>
+        <Card className="h-100 ">
           <div className="text-center mt-2">
             <Card.Img
               variant="top"
@@ -29,17 +33,22 @@ function Products() {
             </Card.Text>
           </Card.Body>
           <Card.Footer className="text-center bg-white">
-            <Button variant="primary">Add to Cart</Button>
+            <Button variant="primary" onClick={() => addtoCart(product)}>
+              Add to Cart
+            </Button>
           </Card.Footer>
         </Card>
       </div>
     );
   });
+  console.log(products);
 
   return (
-    <>
+    <div className="text-center mt-2">
+      <h2>Store Products</h2>
+
       <div className="row mt-5 mx-2">{cards}</div>
-    </>
+    </div>
   );
 }
 

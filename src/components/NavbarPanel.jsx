@@ -2,8 +2,10 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function NavbarPanel() {
+  const cartProducts = useSelector((state) => state.cart);
   return (
     <Navbar bg="danger" expand="lg" data-bs-theme="dark">
       <Container fluid>
@@ -22,7 +24,7 @@ function NavbarPanel() {
           >
             <Nav.Link as={Link} to="/Cart">
               <b className="text-light">
-                <h4>Cart (0)</h4>
+                <h4>Cart ({cartProducts.length})</h4>
               </b>
             </Nav.Link>
           </Nav>
