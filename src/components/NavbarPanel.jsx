@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 function NavbarPanel() {
   const cartProducts = useSelector((state) => state.cart);
   return (
-    <Navbar bg="danger" expand="lg" data-bs-theme="dark">
+    <Navbar fixed="top" bg="danger" expand="lg" data-bs-theme="dark">
       <Container fluid>
         <Navbar.Brand as={Link} to="/">
           Redux Store
