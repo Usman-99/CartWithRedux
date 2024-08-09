@@ -76,10 +76,10 @@ const Cart = () => {
         <h5 className="text-center mt-5">No products added in cart</h5>
       ) : (
         <>
-          <div className="row">{cardItems}</div>
-          <div className="text-center mt-2 mb-4">
+          <div className="text-center mt-4 mb-4">
             <h4>Total Amount: Rs. {totalAmount.toFixed(2)}</h4>
           </div>
+          <div className="row">{cardItems}</div>
         </>
       )}
     </div>
